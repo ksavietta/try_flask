@@ -1,4 +1,5 @@
 import os
+import pdb
 
 from flask import Flask
 
@@ -24,11 +25,15 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    from . import db
+    db.init_app(app)
+
     # a simple page that says hello
     @app.route('/hello')
     def hello():
-        return 'Hello, Jacob!'
-    from . import db
-    db.init_app(app)
+        database = db.get_db()
+        record = database.execute('SELECT * FROM user').fetchone()
+        return record["username"]
+        # return 'Hello, Jacob!'
 
     return app
