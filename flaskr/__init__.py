@@ -31,9 +31,12 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/hello')
     def hello():
-        database = db.get_db()
-        record = database.execute('SELECT * FROM user').fetchone()
-        return record["username"]
-        # return 'Hello, Jacob!'
+        #database = db.get_db()
+        #record = database.execute('SELECT * FROM user').fetchone()
+        #return record["username"]
+        return 'Hello, Jacob!'
 
+    from . import auth
+    app.register_blueprint(auth.bp)
+    
     return app
