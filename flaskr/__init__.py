@@ -28,6 +28,13 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
+
     # a simple page that says hello
     @app.route('/hello')
     def hello():
@@ -36,7 +43,4 @@ def create_app(test_config=None):
         #return record["username"]
         return 'Hello, Jacob!'
 
-    from . import auth
-    app.register_blueprint(auth.bp)
-    
     return app
