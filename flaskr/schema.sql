@@ -15,3 +15,13 @@ CREATE TABLE post (
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
+
+CREATE TABLE carbon_conversion_factor (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  property_name TEXT NOT NULL,
+  input_units TEXT NOT NULL,
+  input_to_co2 REAL NOT NULL,
+  output_units TEXT NOT NULL,
+  input_to_output REAL NOT NULL
+);
