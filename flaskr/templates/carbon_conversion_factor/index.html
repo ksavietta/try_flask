@@ -1,6 +1,41 @@
 {% extends 'base.html' %}
+{% block title %}
+  Home
+{% endblock %}
 {% block content %}
-  {% for factor in carbon_conversion_factors %}
+  <div class="container" style="padding-top:20px;">
+    <div class="row justify-content-md-center">
+      <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-body">
+            <h4 class="card-title">Do you use straws?</h4>
+            <button type="button" class="btn btn-primary btn-lg">I use straws!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-body">
+            <h4 class="card-title">Do you eat meat?</h4>
+            <button type="button" class="btn btn-primary btn-lg">I eat meat!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-body">
+            <h4 class="card-title">Do you fly often?</h4>
+            <button type="button" class="btn btn-primary btn-lg">I love to fly!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app">
+    [[ message ]]
+  </div>
+  <!-- {% for factor in carbon_conversion_factors %}
     <article class="post">
       <header>
         <div>
@@ -19,5 +54,6 @@
     {% if not loop.last %}
       <hr>
     {% endif %}
-  {% endfor %}
+  {% endfor %} -->
+  <script src="{{url_for('static', filename='carbon_conversion_factor/index.js')}}"></script>
 {% endblock %}
