@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% for factor in carbon_conversion_factors %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ factor['display_name'] }}</h1>
+        </div>
+      </header>
+      <p class="body">{{ factor['id'] }}</p>
+      <p class="body">{{ factor['created'] }}</p>
+      <p class="body">{{ factor['api_name'] }}</p>
+      <p class="body">{{ factor['input_units'] }}</p>
+      <p class="body">{{ factor['input_to_co2'] }}</p>
+      <p class="body">{{ factor['output_units'] }}</p>
+      <p class="body">{{ factor['input_to_output'] }}</p>
+
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

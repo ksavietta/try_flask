@@ -33,11 +33,14 @@ def create_app(test_config=None):
 
     from . import blog
     app.register_blueprint(blog.bp)
-    app.add_url_rule('/', endpoint='index')
 
     from . import d3
     app.register_blueprint(d3.bp)
     # app.add_url_rule('/', endpoint='d3')
+
+    from . import carbon_conversion_factor
+    app.register_blueprint(carbon_conversion_factor.bp)
+    app.add_url_rule('/', endpoint='index')
 
     # a simple page that says hello
     @app.route('/hello')
