@@ -25,5 +25,6 @@ CREATE TABLE carbon_conversion_factor (
   input_units TEXT NOT NULL,
   input_to_co2 REAL NOT NULL,
   output_units TEXT NOT NULL,
-  input_to_output REAL NOT NULL
+  input_to_output REAL NOT NULL,
+  required_flags TEXT NOT NULL
 );
