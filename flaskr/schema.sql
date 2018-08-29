@@ -23,7 +23,7 @@ CREATE TABLE carbon_conversion_factor (
   display_name TEXT NOT NULL,
   api_name TEXT NOT NULL,
   input_units TEXT NOT NULL,
-  input_to_co2 REAL NOT NULL,
+  input_to_co2 REAL DEFAULT NULL,
   output_units TEXT NOT NULL,
   input_to_output REAL NOT NULL,
   required_flags TEXT DEFAULT NULL,

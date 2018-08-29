@@ -1,0 +1,38 @@
+[
+  {
+    "display_name": "Miles driven per week",
+    "api_name": "input_footprint_transportation_miles1",
+    "input_units": "CO2/mile",
+    "output_units": "CO2/mile",
+    "input_to_output": 1,
+    "required_flags": null,
+    "required_flags_value": null
+  },
+  {
+    "display_name": "Meals of meat per week",
+    "api_name": "input_footprint_shopping_food_meatfisheggs",
+    "input_units": "CO2/calorie of meat",
+    "output_units": "CO2/meal of meat",
+    "input_to_output": 200,
+    "required_flags": "input_footprint_shopping_food_meattype",
+    "required_flags_value": 0
+  },
+  {
+    "display_name": "Cross-country round-trip flights per year",
+    "api_name": "input_footprint_transportation_airlong",
+    "input_units": "CO2/long one-way trip",
+    "output_units": "CO2/long round trip",
+    "input_to_output": 0.038461539,
+    "required_flags":"input_footprint_transportation_airtype",
+    "required_flags_value": 1
+  },
+  {
+  	"display_name": "Add a room to your house",
+  	"api_name": "input_footprint_housing_squarefeet",
+  	"input_units": "CO2/square foot",
+  	"output_units": "CO2/room",
+  	"input_to_output": 300,
+    "required_flags": null,
+    "required_flags_value":null
+  }
+]
