@@ -1,4 +1,4 @@
-import config
+from . import config
 import requests
 import xmltodict
 import pdb
@@ -24,7 +24,7 @@ class CoolClimate:
                 self.default_outputs[key] = value #add results to output dict
             else:
                 self.default_inputs[key] = value#add results to input dict
-        self.default_total_C02 = self.default_outputs['result_grand_total']
+        self.default_total_CO2 = self.default_outputs['result_grand_total']
         self.default_inputs['input_changed'] = '1' #in general specify that inputs have been changed 
         
         #from now on, we set all the parameters
@@ -37,6 +37,6 @@ class CoolClimate:
         req = requests.get(self.url,headers = headers,params = params)
         r_dict = xmltodict.parse(req.text)
         return dict(r_dict['response']) #convert to regular dict
-    def get_total_C02(self,params = {}):
+    def get_total_CO2(self,params = {}):
         data = self.get(params)
         return data['result_grand_total']

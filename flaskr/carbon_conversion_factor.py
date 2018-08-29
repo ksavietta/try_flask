@@ -5,12 +5,15 @@ from werkzeug.exceptions import abort
 
 from flaskr.auth import login_required
 from flaskr.db import get_db
-
+from flaskr.db_backfill import fill_db_manual,fill_db_api
 bp = Blueprint('carbon_conversion_factor', __name__)
 
 @bp.route('/')
 def index():
     db = get_db()
+    
+    fill_db_manual()
+    fill_db_api()
     carbon_conversion_factors = db.execute(
         'SELECT *'
         ' FROM carbon_conversion_factor factor '
@@ -32,3 +35,5 @@ def get_conversion_factor(id):
         abort(404, "Carbon Conversion Factor id {0} doesn't exist.".format(id))
 
     return factor
+
+
