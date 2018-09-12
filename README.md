@@ -5,6 +5,11 @@ export FLASK_ENV=development
 flask run
 ```
 
+To install xmltodict:
+```
+pip install xmltodict
+```
+
 To refresh db schema:
 
 ```
